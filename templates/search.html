@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>MyKindle</title>
+    <style>
+form
+{
+padding:0;
+width:100%;
+margin:20px 0 0 0;
+height:300px;
+}
+#searchinput
+{
+height:100px;
+width:100%;
+font-size:80px;
+padding:0;
+border-style:solid;
+}
+#searchsubmit
+{
+height:100px;
+width:30%;
+padding:0;
+margin:20px 0 35% 35%;
+}
+#resultnote
+{
+margin-bottom:60px;
+}
+.book
+{
+display:block;
+height:70px;
+padding:0;
+width:100%;
+font-size:35px;
+margin-top:35px;
+}
+
+</style>
+</head>
+<body>
+<form method="POST">
+        <input id='searchinput' type="text" name="keyword">
+        <br>
+        <input id='searchsubmit' type="submit" value="搜索">
+</form>
+<h1 id="resultnote"><I>  {{ keyword }} </I> 的搜索结果</h1>
+    {% for book in books %}
+      <a class="book" id= {{book.id}} href="/download/{{book.path}}">{{book.name}}</a>
+    {% endfor %}
+</body>
+</html>
